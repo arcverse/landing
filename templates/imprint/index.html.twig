@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}🪐 arcverse 🪐 Imprint{% endblock %}
+
+{% block body %}
+    <header>
+        {{ include('navbar.html.twig') }}
+    </header>
+    <main class="text-white my-8 mx-96">
+        <h1 class="font-bold text-slate-400 text-3xl">
+            Anbieterkennzeichnung
+        </h1>
+        <p class="text-slate-300 mt-8">
+        <h3 class="text-lg font-bold text-slate-400 mb-2.5">
+            Angaben gemäß § 5 TMG
+        </h3>
+        Thore Müller<br>
+        Oberfürberger Str. 6<br>
+        90768 Fürth<br>
+        <br>
+        <h3 class="text-lg font-bold text-slate-400 mb-2.5">
+        Kontakt
+        </h3>
+        Telefon: +49 (0) 170 447 6416<br>
+        E-Mail: {{ include('components/ui/link.html.twig', {
+            label: 'info@arcver.se',
+            href: 'mailto:info@arcver.se',
+            blank: false
+        }) }}<br>
+        Discord: {{ include('components/ui/link.html.twig', {
+            label: 'https://discord.arcver.se',
+            href: 'https://discord.arcver.se',
+            blank: true
+        }) }}<br>
+        <br>
+        <h3 class="text-lg font-bold text-slate-400 mb-2.5">
+        EU-Streitschlichtung
+        </h3>
+        Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+        https://ec.europa.eu/consumers/odr/.<br>
+        Unsere E-Mail-Adresse finden Sie unten im Impressum.<br>
+        <br>
+        <h3 class="text-lg font-bold text-slate-400 mb-2.5">
+        Verbraucherstreitbeilegung/Universalschlichtungsstelle<br>
+        </h3>
+        Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
+        Verbraucherschlichtungsstelle teilzunehmen.<br>
+        <br>
+        Quelle: https://www.e-recht24.de/impressum-generator.html
+        </p>
+    </main>
+    <footer>
+        {{ include('footer.html.twig') }}
+    </footer>
+{% endblock %}

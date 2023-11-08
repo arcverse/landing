@@ -1,0 +1,46 @@
+<div class="h-fit flex flex-row justify-center gap-x-10 py-2.5 bg-black/50">
+    <div class="flex flex-col justify-center">
+        <div class="w-fit p-2 flex flex-row justify-between gap-x-8">
+            <img alt="" class="h-10" src="{{ asset('images/logo.png') }}">
+        </div>
+    </div>
+    <div class="flex flex-col justify-center">
+        <div class="w-fit p-2 flex flex-row justify-between gap-x-8">
+            {{ include('components/ui/button.html.twig', {
+                variant: "default",
+                href: "#",
+                label: "Home",
+                icon: "fa-solid fa-house",
+                class: ""
+            }) }}
+            {{ include('components/ui/button.html.twig', {
+                variant: "ghost",
+                href: "#",
+                label: "News",
+                icon: "fa-solid fa-square-rss",
+                class: ""
+            }) }}
+            {{ include('components/ui/button.html.twig', {
+                variant: "ghost",
+                href: "#",
+                label: "Forum",
+                icon: "fa-solid fa-heart",
+                class: ""
+            }) }}
+            {{ include('components/ui/button.html.twig', {
+                variant: "ghost",
+                href: "#",
+                label: "Wiki",
+                icon: "fa-solid fa-globe",
+                class: ""
+            }) }}
+            {{ include('components/ui/button.html.twig', {
+                variant: "default",
+                href: "#",
+                label: "Shop",
+                icon: "fa-solid fa-shop",
+                class: ""
+            }) }}
+        </div>
+    </div>
+</div>
