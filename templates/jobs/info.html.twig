@@ -1,0 +1,167 @@
+{% extends 'page.html.twig' %}
+
+{% block title %}🪐 arcverse 🪐 Jobs{% endblock %}
+
+{% block content %}
+    <h1 class="font-bold text-slate-400 text-3xl" style="color: {{ job.color }}">
+        Apply for {{ job.name }}
+    </h1>
+    <br>
+    <div class="py-1 px-3 bg-slate-950 shadow overflow-hidden rounded-md">
+        <p class="text-slate-400 text-md">
+            {{ job.description }}
+        </p>
+        <br>
+        <br>
+        <h2 class="font-bold text-slate-500 text-xl">
+            Apply now:
+        </h2>
+        <div class="mt-10">
+            <form class="space-y-8" action="{{ path('app_jobs_info', {
+                job: job.id
+            }) }}" method="post">
+                <div class="space-y-8 divide-y divide-gray-200">
+                    <div>
+                        <br>
+                        <h1 class="font-sans text-3xl" style="color: #3a4cd8">
+                            Bewirb dich jetzt für diese Stelle:
+                        </h1>
+                        <div class="mt-6 grid grid-cols-1 gap-y-6 gap-x-4 sm:grid-cols-6">
+                            <div class="sm:col-span-4">
+                                <label for="discord" class="block text-md font-black text-orange-600"
+                                       style="color: #3a4cd8"> Discord Name </label>
+                                <div class="mt-1 flex rounded-md shadow-sm">
+                                    <input required="" type="text" name="discord" id="discord"
+                                           class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-4">
+                                <label for="mail" class="block text-md font-black text-orange-600"
+                                       style="color: #3a4cd8"> E-Mail </label>
+                                <div class="mt-1 flex rounded-md shadow-sm">
+                                    <input required="" type="email" name="mail" id="mail"
+                                           class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-4">
+                                <label for="name" class="block text-md font-black text-orange-600"
+                                       style="color: #3a4cd8"> Name </label>
+                                <div class="mt-1 flex rounded-md shadow-sm">
+                                    <input required="" type="text" name="name" id="name"
+                                           class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-4">
+                                <label for="age" class="block text-md font-black text-orange-600"
+                                       style="color: #3a4cd8"> Alter </label>
+                                <div class="mt-1 flex rounded-md shadow-sm">
+                                    <input required="" type="number" min="13" max="99" name="age" id="age"
+                                           class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-4">
+                                <label for="strengths" class="block text-md font-black text-orange-600"
+                                       style="color: #3a4cd8">Your strengths</label>
+                                <div class="mt-1 flex rounded-md shadow-sm">
+                                    <textarea required="" type="text" name="strengths" id="strengths"
+                                              class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 h-28 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700"></textarea>
+                                </div>
+                            </div>
+
+
+                            <div class="sm:col-span-4">
+                                <label for="weaknesses" class="block text-md font-black text-orange-600"
+                                       style="color: #3a4cd8">Your weaknesses</label>
+                                <div class="mt-1 flex rounded-md shadow-sm">
+                                    <textarea required="" type="text" name="weaknesses" id="weaknesses"
+                                              class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 h-28 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-4">
+                                <label for="online" class="block text-md font-black text-orange-600"
+                                       style="color: #3a4cd8">Your online times</label>
+                                <div class="mt-1 flex rounded-md shadow-sm">
+                                    <input required="" type="text" name="online" id="online"
+                                           class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-4">
+                                <label for="knowledge" class="block text-md font-black text-orange-600"
+                                       style="color: #3a4cd8">Your minecraft experience</label>
+                                <div class="mt-1 flex rounded-md shadow-sm">
+                                    <textarea required="" type="text" name="knowledge" id="knowledge"
+                                              class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 h-28 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-4">
+                                <label for="referer" class="block text-md font-black text-orange-600"
+                                       style="color: #3a4cd8">How did you find us?</label>
+                                <div class="mt-1 flex rounded-md shadow-sm">
+                                    <input required="" type="text" name="referer" id="referer"
+                                           class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700">
+                                </div>
+                            </div>
+
+                            <div class="sm:col-span-4">
+                                <label for="knowledge" class="block text-md font-black text-orange-600"
+                                       style="color: #3a4cd8">Tell us about you and what you do</label>
+                                <div class="mt-1 flex rounded-md shadow-sm">
+                                    <textarea required="" type="text" name="knowledge" id="knowledge"
+                                              class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 h-28 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-8">
+                        <div>
+                            <h3 class="text-lg leading-6 font-medium text-gray-100">Datenschutz</h3>
+                            <p class="mt-1 text-sm text-gray-100">
+                                Du musst noch unsere Datenschutzbedingungen akzeptieren.
+                            </p>
+                        </div>
+                        <div class="mt-4 space-y-4">
+                            <div class="relative flex items-start">
+                                <div class="flex items-center h-5">
+                                    <input required="" id="privacy" name="privacy" type="checkbox"
+                                           class="focus:ring-indigo-500 h-4 w-4 bg-gray-700 text-indigo-600 border-gray-300 rounded hover:cursor-pointer">
+                                </div>
+                                <div class="ml-3 text-sm">
+                                    <label for="privacy" class="font-medium text-gray-100 hover:cursor-pointer">
+                                        Ich habe die Datenschutzerklärung gelesen und bin damit einverstanden, dass
+                                        meine Daten auf den SkyRealm Servern gespeichert werden fürfen.
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cf-turnstile" data-sitekey="0x4AAAAAAACATeeFHjeB6MSH">
+                        <iframe src="https://challenges.cloudflare.com/cdn-cgi/challenge-platform/h/g/turnstile/if/ov2/av0/rcv0/0/9n9p7/0x4AAAAAAACATeeFHjeB6MSH/auto/normal"
+                                allow="cross-origin-isolated; fullscreen"
+                                sandbox="allow-same-origin allow-scripts allow-popups" id="cf-chl-widget-9n9p7"
+                                tabindex="0" title="Widget containing a Cloudflare security challenge"
+                                style="border: none; overflow: hidden; width: 300px; height: 65px;"></iframe>
+                        <input type="hidden" name="cf-turnstile-response" id="cf-chl-widget-9n9p7_response"
+                               value="0.Q3cQe8wXQxPRGKbuxAUxKkxlvz6IhWs0mJewUgjODCT7wNyRJJ68hqh3EFJvHbfWjppOpnD1VmlOq-VqkLPX9UP8M8L42_XwTwivum1yjqYCM1KfABFCHd5xge4QiPI_dVnIZ03ChcQtZ2dNvStY3hmuZ15Hi4SDfLWW0J--kDOQ6uWyro8UJUFYt22ebmc6MaQ8JiiGcOf0VnMW8DPMK-7FcA12lP2rNDwLuVoczpw9XzdXNMm8gKjzHlhIKGWsGenCAut6CyGDqmovT63lz4kocN_CIaEFl-ulNsank13SGDjSw13swysQOMJu6VPM-tzjrqUCGcVwseRN1UPpHE4uf3GLrBeJLe9EAHYIUJfKZCnRI6SEs07Jm_uGmWD3K7sD5qe5TR436t7weurVkvhhgldS1y0q78hXIMsmRAGqwMkf9h_-ZGCJO0yTY8JU.-T4d1JBS--6zV8OpVKyQ8A.d10b787dd7d64744e2f68a596df2eaeec253ad221fc55162dde0260c093241ab">
+                    </div>
+                </div>
+
+                <div class="pt-5">
+                    <div class="flex justify-end">
+                        <button type="submit"
+                                class="ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                            Abschicken
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}

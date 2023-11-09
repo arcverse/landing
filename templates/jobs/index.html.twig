@@ -11,7 +11,9 @@
         <div role="list" class="flex flex-col gap-x-2.5 divide-y divide-slate-800">
             {% for job in jobs %}
                 <div class="hover:bg-slate-900 transition list-none {% if loop.first %}rounded-t-md{% elseif loop.last %}rounded-b-md{% endif %}">
-                    <a href="{{ path('app_homepage') }}" class="block">
+                    <a href="{{ path('app_jobs_info', {
+                        job: job.id
+                    }) }}" class="block">
                         <div class="px-2 py-4 sm:px-6">
                             <div class="flex items-center justify-between mb-4">
                                 <p class="font-black text-xl truncate" style="color: {{ job.color }}">{{ job.name }}</p>

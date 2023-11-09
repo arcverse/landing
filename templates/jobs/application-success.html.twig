@@ -1,0 +1,15 @@
+{% extends 'page.html.twig' %}
+
+{% block title %}🪐 arcverse 🪐 Applied ❤️{% endblock %}
+
+{% block content %}
+    <h1 class="font-bold text-slate-400 text-3xl" style="color: {{ job.color }}">
+        We received your application for {{ job.name }}
+    </h1>
+    <br>
+    <div class="py-1 px-3 bg-slate-950 shadow overflow-hidden rounded-md">
+        <p class="text-slate-400 text-md">
+            We will review your application and get back to you as soon as possible.
+        </p>
+    </div>
+{% endblock %}

@@ -4,7 +4,7 @@
             <img alt="" class="h-10" src="{{ asset('images/logo.png') }}">
         </div>
     </div>
-    <div class="flex flex-col justify-center md:hidden transition">
+    <div class="flex flex-col justify-center lg:hidden transition">
         <button
                 class="py-2 px-3 bg-blue-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-blue-500/50 focus:outline-none hover:scale-105 transition"
                 {{ stimulus_action('mobile-navbar', 'openNav') }}>
@@ -57,7 +57,7 @@
             }) }}
         </div>
     </div>
-    <div class="hidden md:flex flex-col justify-center">
+    <div class="hidden lg:flex flex-col justify-center">
         <div class="w-fit p-2 flex flex-row justify-between gap-x-8">
             {{ include('components/ui/button.html.twig', {
                 variant: "default",
