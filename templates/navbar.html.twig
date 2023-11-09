@@ -1,36 +1,50 @@
-<div class="h-fit flex flex-row justify-center gap-x-10 py-2.5 bg-black/50">
+<div class="h-fit flex flex-row justify-center gap-x-10 py-2.5 bg-black/50 group" {{ stimulus_controller('mobile-navbar') }}>
     <div class="flex flex-col justify-center">
         <div class="w-fit p-2 flex flex-row justify-between gap-x-8">
             <img alt="" class="h-10" src="{{ asset('images/logo.png') }}">
         </div>
     </div>
-    <div class="flex flex-col justify-center">
-        <div class="w-fit p-2 flex flex-row justify-between gap-x-8">
-            {{ include('components/ui/button.html.twig', {
-                variant: "default",
-                href: "#",
-                label: "Home",
-                icon: "fa-solid fa-house",
-                class: ""
-            }) }}
+    <div class="flex flex-col justify-center md:hidden transition">
+        <button
+                class="py-2 px-3 bg-blue-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-blue-500/50 focus:outline-none hover:scale-105 transition"
+                {{ stimulus_action('mobile-navbar', 'openNav') }}>
+            <i class="fa-solid fa-burger"></i>
+            Menu
+        </button>
+    </div>
+    <div class="absolute h-full w-full hidden flex-row justify-center bg-slate-950/70 transition" {{ stimulus_target('mobile-navbar', 'navbarDiv') }}>
+        <div class="w-fit p-2 flex flex-col justify-center gap-y-4">
+            <div class="flex flex-row justify-start gap-x-2.5">
+                {{ include('components/ui/button.html.twig', {
+                    variant: "default",
+                    href: path('app_homepage'),
+                    label: "Home",
+                    icon: "fa-solid fa-house",
+                    class: ""
+                }) }}
+                <button class="py-2 px-3 border border-blue-500 text-white text-sm font-semibold rounded-md shadow-lg focus:outline-none hover:scale-105 transition"
+                        {{ stimulus_action('mobile-navbar', 'closeNav') }}>
+                    <i class="fa-solid fa-close"></i>
+                </button>
+            </div>
             {{ include('components/ui/button.html.twig', {
                 variant: "ghost",
                 href: "#",
-                label: "News",
+                label: "Forums",
                 icon: "fa-solid fa-square-rss",
                 class: ""
             }) }}
             {{ include('components/ui/button.html.twig', {
                 variant: "ghost",
-                href: "#",
-                label: "Forum",
+                href: "https://arcverse.instatus.com",
+                label: "Health",
                 icon: "fa-solid fa-heart",
                 class: ""
             }) }}
             {{ include('components/ui/button.html.twig', {
                 variant: "ghost",
                 href: "#",
-                label: "Wiki",
+                label: "Account",
                 icon: "fa-solid fa-globe",
                 class: ""
             }) }}
@@ -43,4 +57,42 @@
             }) }}
         </div>
     </div>
-</div>
+    <div class="hidden md:flex flex-col justify-center">
+        <div class="w-fit p-2 flex flex-row justify-between gap-x-8">
+            {{ include('components/ui/button.html.twig', {
+                variant: "default",
+                href: path('app_homepage'),
+                label: "Home",
+                icon: "fa-solid fa-house",
+                class: ""
+            }) }}
+            {{ include('components/ui/button.html.twig', {
+                variant: "ghost",
+                href: "#",
+                label: "Forums",
+                icon: "fa-solid fa-square-rss",
+                class: ""
+            }) }}
+            {{ include('components/ui/button.html.twig', {
+                variant: "ghost",
+                href: "https://arcverse.instatus.com",
+                label: "Health",
+                icon: "fa-solid fa-heart",
+                class: ""
+            }) }}
+            {{ include('components/ui/button.html.twig', {
+                variant: "ghost",
+                href: "#",
+                label: "Account",
+                icon: "fa-solid fa-globe",
+                class: ""
+            }) }}
+            {{ include('components/ui/button.html.twig', {
+                variant: "default",
+                href: "#",
+                label: "Shop",
+                icon: "fa-solid fa-shop",
+                class: ""
+            }) }}
+        </div>
+    </div>

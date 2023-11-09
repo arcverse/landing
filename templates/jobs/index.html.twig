@@ -1,0 +1,55 @@
+{% extends 'page.html.twig' %}
+
+{% block title %}🪐 arcverse 🪐 Jobs{% endblock %}
+
+{% block content %}
+    <h1 class="font-bold text-slate-400 text-3xl">
+        Job Openings
+    </h1>
+    <br>
+    <div class="py-1 px-3 bg-slate-950 shadow overflow-hidden rounded-md">
+        <div role="list" class="flex flex-col gap-x-2.5 divide-y divide-slate-800">
+            {% for job in jobs %}
+                <div class="hover:bg-slate-900 transition list-none {% if loop.first %}rounded-t-md{% elseif loop.last %}rounded-b-md{% endif %}">
+                    <a href="{{ path('app_homepage') }}" class="block">
+                        <div class="px-2 py-4 sm:px-6">
+                            <div class="flex items-center justify-between mb-4">
+                                <p class="font-black text-xl truncate" style="color: {{ job.color }}">{{ job.name }}</p>
+                                <div class="flex">
+                                    {% for tag in job.tags %}
+                                        <div class="ml-2 flex-shrink-0 flex">
+                                            <p class="px-6 inline-flex text-xs leading-5 font-semibold rounded-full border-gray-800 bg-gray-200 text-gray-700">{{ tag }}</p>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="flex items-center justify-between mb-4">
+                                <p class="text-sm font-light text-gray-300 truncate">{{ job.description }}</p>
+                            </div>
+                            <div class="mt-2 sm:flex sm:justify-between">
+                                <div class="sm:flex">
+                                    <p class="flex items-center text-sm text-gray-100">
+                                        <i class="fa-solid fa-user-group mr-2"></i>
+                                        {{ job.branch }}
+                                    </p>
+                                    <p class=" flex items-center text-sm text-gray-100 sm:ml-5">
+                                        <i class="fa-solid fa-house-laptop mr-2"></i>
+                                        {{ job.location ? job.location : "Remote" }}
+                                    </p>
+                                </div>
+                                <div class="flex flex-col justify-center">
+                                    <div class="flex justify-center text-sm text-gray-100">
+                                        <i class="fa-solid fa-calendar-days mr-2 mb-4 "></i>
+                                        <div>
+                                            {{ job.updatedAt|date }} - {{ job.closingAt ? job.closingAt|date : "/" }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

@@ -1,16 +1,13 @@
-{% extends 'base.html.twig' %}
+{% extends 'page.html.twig' %}
 
 {% block title %}🪐 arcverse 🪐 Imprint{% endblock %}
 
-{% block body %}
-    <header>
-        {{ include('navbar.html.twig') }}
-    </header>
-    <main class="text-white my-8 mx-96">
+{% block content %}
+    <div class="mb-6">
         <h1 class="font-bold text-slate-400 text-3xl">
             Anbieterkennzeichnung
         </h1>
-        <p class="text-slate-300 mt-8">
+        <br>
         <h3 class="text-lg font-bold text-slate-400 mb-2.5">
             Angaben gemäß § 5 TMG
         </h3>
@@ -19,7 +16,7 @@
         90768 Fürth<br>
         <br>
         <h3 class="text-lg font-bold text-slate-400 mb-2.5">
-        Kontakt
+            Kontakt
         </h3>
         Telefon: +49 (0) 170 447 6416<br>
         E-Mail: {{ include('components/ui/link.html.twig', {
@@ -34,22 +31,19 @@
         }) }}<br>
         <br>
         <h3 class="text-lg font-bold text-slate-400 mb-2.5">
-        EU-Streitschlichtung
+            EU-Streitschlichtung
         </h3>
         Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
         https://ec.europa.eu/consumers/odr/.<br>
         Unsere E-Mail-Adresse finden Sie unten im Impressum.<br>
         <br>
         <h3 class="text-lg font-bold text-slate-400 mb-2.5">
-        Verbraucherstreitbeilegung/Universalschlichtungsstelle<br>
+            Verbraucherstreitbeilegung/Universalschlichtungsstelle<br>
         </h3>
         Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer
         Verbraucherschlichtungsstelle teilzunehmen.<br>
         <br>
         Quelle: https://www.e-recht24.de/impressum-generator.html
-        </p>
-    </main>
-    <footer>
-        {{ include('footer.html.twig') }}
-    </footer>
+    </div>
+    {{ include('components/discord-card.html.twig') }}
 {% endblock %}

@@ -1,0 +1,18 @@
+<div class="max-w-md rounded overflow-hidden shadow-lg">
+    <img class="w-full" src="{{ image.url }}" alt="{{ image.alt }}">
+    <div class="px-6 py-4">
+        <div class="font-bold text-xl mb-2">{{ title }}</div>
+        <p class="text-gray-700 text-base">
+            {{ description }}
+        </p>
+    </div>
+    <div class="px-6 py-4">
+        {{ include('components/ui/button.html.twig', {
+            variant: button.variant,
+            label: button.label,
+            href: button.href,
+            class: button.class,
+            icon: button.icon,
+        }) }}
+    </div>
+</div>
