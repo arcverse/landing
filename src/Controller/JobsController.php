@@ -60,7 +60,7 @@ class JobsController extends AbstractController
             $entityManager->flush();
             return $this->redirectToRoute('app_jobs_success', [
                 'job' => $job->getId(),
-                'jobApplication' => $jobApplication->getId()
+                'refId' => $jobApplication->getRefId()
             ]);
         }
 
