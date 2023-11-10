@@ -14,7 +14,9 @@ RUN cd /app
 RUN composer install --no-interaction --no-ansi --no-progress --no-scripts
 
 # Install Node.js and npm
-RUN apt-get update \
+RUN apt-get update -y \
+    && apt-get install -y curl \
+    && curl -sL https://deb.nodesource.com/setup_20.x | bash - \
     && apt-get install -y nodejs npm
 
 # Install project dependencies using npm
