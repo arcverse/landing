@@ -16,8 +16,6 @@ RUN cd /app
 
 RUN chmod -R 777 .
 
-RUN bin/console doctrine:migrations:migrate --no-interaction
-
 # Expose the port
 EXPOSE 3000
 
