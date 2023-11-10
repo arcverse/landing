@@ -1,25 +1,31 @@
-FROM php:8.2
+# Use the webdevops/php-nginx base image with PHP 8.2
+FROM webdevops/php-nginx:8.2
 
-LABEL org.opencontainers.image.source=https://github.com/arcverse/landing
-
-ENV APP_ENV prod
-
-RUN mkdir /app && chown -R php:php /app
-
+# Set the working directory
 WORKDIR /app
 
-COPY --chown=php:php package.json package.json
-COPY --chown=php:php package-lock.json package-lock.json
+# Copy all files to the container
+COPY . /app
 
-USER php
+# Change to the app directory
+RUN cd /app
 
-RUN composer install
-RUN npm install --production
+# Install dependencies using Composer
+RUN composer install --no-interaction --no-ansi --no-progress --no-scripts
+
+# Install Node.js and npm
+RUN apt-get update \
+    && apt-get install -y nodejs npm
+
+# Install project dependencies using npm
+RUN npm install
+
+# Run the build process
 RUN npm run build
 
-COPY --chown=php:php . .
-
-
+# Expose the port
 EXPOSE 3000
 
-CMD php -S 0.0.0.0:3000
+ENV WEB_DOCUMENT_ROOT = /app/public
+ENV WEB_DOCUMENT_INDEX = index.php
+ENV client_max_body_size = 100M
