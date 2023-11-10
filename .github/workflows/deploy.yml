@@ -44,4 +44,6 @@ jobs:
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Build Docker image
-        run: docker buildx build --push --platform linux/amd64 -t ghcr.io/${{ github.repository_owner }}/landing:latest .
+        run: |
+          docker buildx create --use
+          docker buildx build --push --platform linux/amd64 -t ghcr.io/${{ github.repository_owner }}/landing:latest .
