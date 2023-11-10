@@ -12,25 +12,8 @@ COPY . /app
 # Set environment variable to allow superuser for Composer plugins
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
-# Change to the app directory
 RUN cd /app
 
-# Install dependencies using Composer
-RUN composer install --no-interaction --no-ansi --no-progress --no-scripts
-
-# Install Node.js and npm
-RUN apt-get update -y \
-    && apt-get install -y curl \
-    && curl -fsSL https://deb.nodesource.com/setup_20.x | bash - \
-    && apt-get install nodejs -y
-
-# Install project dependencies using npm
-RUN npm install
-
-# Run the build process
-RUN npm run build
-
-# Set the permissions
 RUN chmod -R 777 .
 
 # Expose the port

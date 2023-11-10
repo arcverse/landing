@@ -19,10 +19,26 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
+      - name: Install Dependencies and Build Project
+        run: |
+          # Install Composer
+          curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+
+          # Install Node.js
+          curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+          apt-get install -y nodejs
+
+          # Install project dependencies using Composer
+          composer install --no-interaction --no-ansi --no-progress --no-scripts
+
+          # Install project dependencies using npm
+          npm install
+
+          # Run the build process
+          npm run build
+
       - name: Log in to GitHub Container Registry
         run: echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
       - name: Build Docker image
-        run: |
-          docker buildx create --use
-          docker buildx build --push --platform linux/amd64 -t ghcr.io/${{ github.repository_owner }}/landing:latest .
+        run: docker buildx build --push --platform linux/amd64 -t ghcr.io/${{ github.repository_owner }}/landing:latest .
