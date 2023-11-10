@@ -53,6 +53,9 @@ class JobApplication
     #[ORM\ManyToOne(inversedBy: 'jobApplications')]
     private ?Job $job = null;
 
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $refId = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -210,6 +213,18 @@ class JobApplication
     public function setJob(?Job $job): static
     {
         $this->job = $job;
+
+        return $this;
+    }
+
+    public function getRefId(): ?string
+    {
+        return $this->refId;
+    }
+
+    public function setRefId(?string $refId): static
+    {
+        $this->refId = $refId;
 
         return $this;
     }

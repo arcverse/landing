@@ -2,25 +2,25 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Job;
+use App\Entity\JobApplication;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
-use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
+use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
-class JobCrudController extends AbstractCrudController
+class JobApplicationCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Job::class;
+        return JobApplication::class;
     }
 
     public function configureActions(Actions $actions): Actions
@@ -33,14 +33,18 @@ class JobCrudController extends AbstractCrudController
     {
         yield IdField::new('id')->hideOnForm();
         yield TextField::new('name');
-        yield TextareaField::new('description')->hideOnIndex();
-        yield TextField::new('branch');
-        yield TextField::new('location');
-        yield ArrayField::new('tags');
-        yield TextEditorField::new('info')->hideOnIndex();
-        yield DateTimeField::new('closing_at');
-        yield DateTimeField::new('created_at');
+        yield TextField::new('discord_name');
+        yield EmailField::new('email');
+        yield IntegerField::new('age');
+        yield TextareaField::new('strengths')->hideOnIndex();
+        yield TextareaField::new('weaknesses')->hideOnIndex();
+        yield TextareaField::new('online_time')->hideOnIndex();
+        yield TextareaField::new('minecraft_experience')->hideOnIndex();
+        yield TextField::new('origin');
+        yield TextareaField::new('about')->hideOnIndex();
         yield DateTimeField::new('updated_at');
-        yield TextField::new('color');
+        yield DateTimeField::new('created_at');
+        yield AssociationField::new('job')
+            ->autocomplete();
     }
 }

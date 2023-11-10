@@ -9,7 +9,18 @@
     <br>
     <div class="py-1 px-3 bg-slate-950 shadow overflow-hidden rounded-md">
         <p class="text-slate-400 text-md">
+            Thank you for your interest in {{ job.name }}.
+            <br>
+            <br>
             We will review your application and get back to you as soon as possible.
+            <br>
+            <br>
+            Please regularly check your email for updates.
+            <br>
+            If you have any questions, please contact us via discord. You can open a ticket there and provide us with your application ID.
+            Your application ID is: <span class="font-bold">{{ jobApplication.refId }}</span>
         </p>
     </div>
+    <br>
+    {{ include('components/discord-card.html.twig') }}
 {% endblock %}

@@ -46,6 +46,9 @@ class Job
     #[ORM\OneToMany(mappedBy: 'job', targetEntity: JobApplication::class)]
     private Collection $jobApplications;
 
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $info = null;
+
     public function __construct()
     {
         $this->jobApplications = new ArrayCollection();
@@ -190,6 +193,18 @@ class Job
                 $jobApplication->setJob(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getInfo(): ?string
+    {
+        return $this->info;
+    }
+
+    public function setInfo(string $info): static
+    {
+        $this->info = $info;
 
         return $this;
     }

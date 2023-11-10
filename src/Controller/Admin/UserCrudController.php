@@ -2,25 +2,22 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Job;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
-class JobCrudController extends AbstractCrudController
+class UserCrudController extends AbstractCrudController
 {
     public static function getEntityFqcn(): string
     {
-        return Job::class;
+        return User::class;
     }
 
     public function configureActions(Actions $actions): Actions
@@ -32,15 +29,12 @@ class JobCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         yield IdField::new('id')->hideOnForm();
-        yield TextField::new('name');
-        yield TextareaField::new('description')->hideOnIndex();
-        yield TextField::new('branch');
-        yield TextField::new('location');
-        yield ArrayField::new('tags');
-        yield TextEditorField::new('info')->hideOnIndex();
-        yield DateTimeField::new('closing_at');
-        yield DateTimeField::new('created_at');
-        yield DateTimeField::new('updated_at');
-        yield TextField::new('color');
+        yield TextField::new('email');
+        yield TextField::new('password');
+        $roles = ['ROLE_USER', 'ROLE_ADMIN', 'ROLE_MODERATOR', 'ROLE_SUPER_ADMIN'];
+        yield ChoiceField::new('roles')
+            ->setChoices(array_combine($roles, $roles))
+            ->allowMultipleChoices()
+            ->renderAsBadges();
     }
 }

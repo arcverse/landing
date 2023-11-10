@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Entity\Job;
 use App\Entity\JobApplication;
+use App\Repository\JobApplicationRepository;
 use App\Repository\JobRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -52,23 +53,32 @@ class JobsController extends AbstractController
             $jobApplication->setOrigin($origin);
             $jobApplication->setAbout($about);
             $jobApplication->setJob($job);
+            $jobApplication->setUpdatedAt(new \DateTimeImmutable());
+            $jobApplication->setCreatedAt(new \DateTimeImmutable());
+            $jobApplication->setRefId(uniqid());
             $entityManager->persist($jobApplication);
             $entityManager->flush();
             return $this->redirectToRoute('app_jobs_success', [
-                'job' => $job->getId()
+                'job' => $job->getId(),
+                'jobApplication' => $jobApplication->getId()
             ]);
         }
 
         return $this->render('jobs/info.html.twig', [
-            'job' => $job
+            'job' => $job,
         ]);
     }
 
-    #[Route('/jobs/{job}/success', 'app_jobs_success')]
-    public function success(Job $job): Response
+    #[Route('/jobs/{job}/success/{refId}', 'app_jobs_success')]
+    public function success(Job $job, string $refId, JobApplicationRepository $applicationRepository): Response
     {
+        $jobApplication = $applicationRepository->findOneBy([
+            'job' => $job,
+            'refId' => $refId
+        ]);
         return $this->render('jobs/application-success.html.twig', [
-            'job' => $job
+            'job' => $job,
+            'jobApplication' => $jobApplication
         ]);
     }
 }
