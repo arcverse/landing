@@ -31,7 +31,7 @@ RUN npm install
 RUN npm run build
 
 # Set the permissions
-RUN chmod -R 777 var
+RUN chmod -R 777 .
 
 # Expose the port
 EXPOSE 3000
