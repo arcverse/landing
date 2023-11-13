@@ -54,6 +54,6 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
 
     protected function getLoginUrl(Request $request): string
     {
-        return $this->urlGenerator->generate(self::LOGIN_ROUTE, referenceType: UrlGeneratorInterface::RELATIVE_PATH);
+        return $this->urlGenerator->generate(self::LOGIN_ROUTE, referenceType: UrlGeneratorInterface::ABSOLUTE_URL);
     }
 }
