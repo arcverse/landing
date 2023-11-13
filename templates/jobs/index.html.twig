@@ -7,10 +7,10 @@
         Job Openings
     </h1>
     <br>
-    <div class="py-1 px-3 bg-slate-950 shadow overflow-hidden rounded-md">
+    <div class="bg-slate-950/60 shadow overflow-hidden rounded-md">
         <div role="list" class="flex flex-col gap-x-2.5 divide-y divide-slate-800">
             {% for job in jobs %}
-                <div class="hover:bg-slate-900 transition list-none {% if loop.first %}rounded-t-md{% elseif loop.last %}rounded-b-md{% endif %}">
+                <div class="hover:bg-slate-900/80 transition list-none {% if loop.first %}rounded-t-md{% elseif loop.last %}rounded-b-md{% endif %}">
                     <a href="{{ path('app_jobs_info', {
                         job: job.id
                     }) }}" class="block">
