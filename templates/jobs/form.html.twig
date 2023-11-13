@@ -2,96 +2,85 @@
     job: job.id
 }) }}" method="POST">
     <div class="flex flex-col gap-y-4">
-        <div>
-            <label for="name" class="block text-md font-black text-orange-600"
-                   style="color: #3a4cd8">Name</label>
-            <div class="mt-1 flex rounded-md shadow-sm">
-                <input required="" type="text" name="name" id="name"
-                       class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700">
-            </div>
-        </div>
+        {{ include('components/ui/text-input.html.twig', {
+            type: "text",
+            label: "Name",
+            id: "name",
+            attr: "required",
+            area: false
+        }) }}
 
-        <div>
-            <label for="discord_name" class="block text-md font-black text-orange-600"
-                   style="color: #3a4cd8">Discord Name</label>
-            <div class="mt-1 flex rounded-md shadow-sm">
-                <input required type="text" name="discord_name" id="discord_name"
-                       class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700">
-            </div>
-        </div>
+        {{ include('components/ui/text-input.html.twig', {
+            type: "text",
+            label: "Discord Name",
+            id: "discord_name",
+            attr: "required",
+            area: false
+        }) }}
 
-        <div>
-            <label for="email" class="block text-md font-black text-orange-600"
-                   style="color: #3a4cd8">E-Mail</label>
-            <div class="mt-1 flex rounded-md shadow-sm">
-                <input required type="email" name="email" id="email"
-                       class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700">
-            </div>
-        </div>
+        {{ include('components/ui/text-input.html.twig', {
+            type: "email",
+            label: "Email address",
+            id: "email",
+            attr: "required",
+            area: false
+        }) }}
 
-        <div>
-            <label for="age" class="block text-md font-black text-orange-600"
-                   style="color: #3a4cd8">Age</label>
-            <div class="mt-1 flex rounded-md shadow-sm">
-                <input required type="number" min="16" max="99" name="age" id="age"
-                       class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700">
-            </div>
-        </div>
+        {{ include('components/ui/text-input.html.twig', {
+            type: "number",
+            label: "Age",
+            id: "age",
+            attr: "required",
+            area: false
+        }) }}
 
-        <div>
-            <label for="strengths" class="block text-md font-black text-orange-600"
-                   style="color: #3a4cd8">Your strengths</label>
-            <div class="mt-1 flex rounded-md shadow-sm">
-                <textarea required type="text" name="strengths" id="strengths"
-                          class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 h-28 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700"></textarea>
-            </div>
-        </div>
+        {{ include('components/ui/text-input.html.twig', {
+            type: "text",
+            label: "Your strengths",
+            id: "strengths",
+            attr: "required",
+            area: true
+        }) }}
 
+        {{ include('components/ui/text-input.html.twig', {
+            type: "text",
+            label: "Your weaknesses",
+            id: "weaknesses",
+            attr: "required",
+            area: true
+        }) }}
 
-        <div>
-            <label for="weaknesses" class="block text-md font-black text-orange-600"
-                   style="color: #3a4cd8">Your weaknesses</label>
-            <div class="mt-1 flex rounded-md shadow-sm">
-                <textarea required type="text" name="weaknesses" id="weaknesses"
-                          class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 h-28 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700"></textarea>
-            </div>
-        </div>
+        {{ include('components/ui/text-input.html.twig', {
+            type: "text",
+            label: "Your online times",
+            id: "online_time",
+            attr: "required",
+            area: false
+        }) }}
 
-        <div>
-            <label for="online_time" class="block text-md font-black text-orange-600"
-                   style="color: #3a4cd8">Your online times</label>
-            <div class="mt-1 flex rounded-md shadow-sm">
-                <input required type="text" name="online_time" id="online_time"
-                       class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700">
-            </div>
-        </div>
+        {{ include('components/ui/text-input.html.twig', {
+            type: "text",
+            label: "Your minecraft experience",
+            id: "minecraft_experience",
+            attr: "required",
+            area: true
+        }) }}
 
-        <div>
-            <label for="minecraft_experience" class="block text-md font-black text-orange-600"
-                   style="color: #3a4cd8">Your minecraft experience</label>
-            <div class="mt-1 flex rounded-md shadow-sm">
-                <textarea required type="text" name="minecraft_experience" id="minecraft_experience"
-                          class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 h-28 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700"></textarea>
-            </div>
-        </div>
+        {{ include('components/ui/text-input.html.twig', {
+            type: "text",
+            label: "How did you find us?",
+            id: "origin",
+            attr: "required",
+            area: false
+        }) }}
 
-        <div>
-            <label for="origin" class="block text-md font-black text-orange-600"
-                   style="color: #3a4cd8">How did you find us?</label>
-            <div class="mt-1 flex rounded-md shadow-sm">
-                <input required type="text" name="origin" id="origin"
-                       class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700">
-            </div>
-        </div>
-
-        <div>
-            <label for="about" class="block text-md font-black text-orange-600"
-                   style="color: #3a4cd8">Tell us about you and what you do</label>
-            <div class="mt-1 flex rounded-md shadow-sm">
-                <textarea required type="text" name="about" id="about"
-                          class="flex-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full py-2 px-1 h-28 min-w-0 rounded-md sm:text-sm border-gray-100 bg-gray-700"></textarea>
-            </div>
-        </div>
+        {{ include('components/ui/text-input.html.twig', {
+            type: "text",
+            label: "Tell us about you and what you do",
+            id: "about",
+            attr: "required",
+            area: true
+        }) }}
     </div>
 
     <div class="pt-8">
