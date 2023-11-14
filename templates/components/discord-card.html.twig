@@ -1,23 +1,14 @@
-<div class="w-full h-fit flex flex-col justify-center rounded-lg bg-slate-950">
-    <div class="flex flex-row justify-between px-16 py-4 gap-x-16">
-        <div class="flex flex-col justify-center">
-            <img src="{{ asset('images/discord-logo.png') }}" alt="discord logo" class="h-16 w-28" />
-        </div>
-        <div class="flex flex-col justify-center">
-            <div>
-                <div class="mb-2.5">
-                    Join our Discord {{ include('components/ui/button.html.twig', {
-                        variant: "default",
-                        label: "Join",
-                        href: "https://discord.arcver.se",
-                        class: "",
-                        icon: ""
-                    }) }}
-                </div>
-                <div>
-                    Our discord is available for everone, you can ask questions, chat with others and get notified about new updates.
-                </div>
-            </div>
-        </div>
+<div class="bg-slate-900/50 rounded-lg p-6 w-full">
+    <div class="flex items-center">
+        <i class="fa-brands fa-discord xl mr-4"></i>
+        <h2 class="text-white text-lg font-semibold">Join Our Discord Server</h2>
     </div>
+    <p class="text-gray-400 mt-4">Stay connected with our community on Discord. Chat with fellow members, get updates, and more!</p>
+    {{ include('components/ui/button.html.twig', {
+        label: "Join Now",
+        href: "https://discord.arcver.se",
+        class: "mt-4",
+        icon: "fa-solid fa-rocket",
+        variant: "clean"
+    }) }}
 </div>
