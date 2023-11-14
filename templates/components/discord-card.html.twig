@@ -1,14 +1,17 @@
-<div class="bg-slate-900/50 rounded-lg p-6 w-full">
-    <div class="flex items-center">
-        <i class="fa-brands fa-discord xl mr-4"></i>
-        <h2 class="text-white text-lg font-semibold">Join Our Discord Server</h2>
+<div class="flex flex-row justify-center w-full">
+    <div class="bg-slate-900/50 rounded-lg p-6 max-w-7xl">
+        <div class="flex items-center">
+            <i class="fa-brands fa-discord xl mr-4"></i>
+            <h2 class="text-white text-lg font-semibold">Join Our Discord Server</h2>
+        </div>
+        <p class="text-gray-400 mt-4">Stay connected with our community on Discord. Chat with fellow members, get
+            updates, and more!</p>
+        {{ include('components/ui/button.html.twig', {
+            label: "Join Now",
+            href: "https://discord.arcver.se",
+            class: "mt-4",
+            icon: "fa-solid fa-rocket",
+            variant: "clean"
+        }) }}
     </div>
-    <p class="text-gray-400 mt-4">Stay connected with our community on Discord. Chat with fellow members, get updates, and more!</p>
-    {{ include('components/ui/button.html.twig', {
-        label: "Join Now",
-        href: "https://discord.arcver.se",
-        class: "mt-4",
-        icon: "fa-solid fa-rocket",
-        variant: "clean"
-    }) }}
 </div>
