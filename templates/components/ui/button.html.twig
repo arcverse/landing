@@ -1,33 +1,49 @@
 {% if variant == "default" %}
-<a href="{{ href }}"
-   class="py-2 px-3 bg-blue-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-blue-500/50 focus:outline-none hover:scale-105 transition {{ class }}">
+    <a href="{{ href }}"
+       class="py-2 px-3 bg-blue-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-blue-500/50 focus:outline-none hover:scale-105 transition {{ class }}">
         {% if icon is defined %}
-                <i class="{{ icon }}"></i>
+            <i class="{{ icon }}"></i>
         {% endif %}
-    {{ label }}
-</a>
+        {{ label }}
+    </a>
 {% elseif variant == "ghost" %}
-<a href="{{ href }}"
-   class="py-2 px-3 text-white text-sm font-semibold rounded-md focus:outline-none hover:scale-105 transition {{ class }}">
+    <a href="{{ href }}"
+       class="py-2 px-3 text-white text-sm font-semibold rounded-md focus:outline-none hover:scale-105 transition {{ class }}">
         {% if icon %}
-                <i class="{{ icon }}"></i>
+            <i class="{{ icon }}"></i>
         {% endif %}
-    {{ label }}
-</a>
+        {{ label }}
+    </a>
 {% elseif variant == "outline" %}
-<a href="{{ href }}"
-   class="py-2 px-3 border border-blue-500 text-white text-sm font-semibold rounded-md shadow-lg focus:outline-none hover:scale-105 transition">
-    {% if icon %}
-        <i class="{{ icon }}"></i>
-    {% endif %}
-    {{ label }}
-</a>
+    <a href="{{ href }}"
+       class="py-2 px-3 border border-blue-500 text-white text-sm font-semibold rounded-md shadow-lg focus:outline-none hover:scale-105 transition {{ class }}">
+        {% if icon %}
+            <i class="{{ icon }}"></i>
+        {% endif %}
+        {{ label }}
+    </a>
 {% elseif variant == "submit" %}
-<button type="submit"
-   class="py-2 px-3 bg-blue-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-blue-500/50 focus:outline-none hover:scale-105 transition {{ class }}">
-    {% if icon is defined %}
-        <i class="{{ icon }}"></i>
-    {% endif %}
-    {{ label }}
-</button>
+    <button type="submit"
+            class="py-2 px-3 bg-blue-500 text-white text-sm font-semibold rounded-md shadow-lg shadow-blue-500/50 focus:outline-none hover:scale-105 transition {{ class }}">
+        {% if icon is defined %}
+            <i class="{{ icon }}"></i>
+        {% endif %}
+        {{ label }}
+    </button>
+{% elseif variant == "clean" %}
+    <a href="{{ href }}"
+       class="px-3 py-2 bg-blue-500 text-white rounded-full transition inline-block hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue active:bg-blue-800 {{ class }}">
+        {% if icon %}
+            <i class="{{ icon }}"></i>
+        {% endif %}
+        {{ label }}
+    </a>
+{% elseif variant == "disabled" %}
+    <button disabled
+       class="py-2 px-3 bg-gray-800 border-gray-600 text-gray-500 text-sm font-semibold rounded-md focus:outline-none hover:scale-105 transition {{ class }}">
+        {% if icon is defined %}
+            <i class="{{ icon }}"></i>
+        {% endif %}
+        {{ label }}
+    </button>
 {% endif %}

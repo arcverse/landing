@@ -14,10 +14,10 @@
                     <a href="{{ path('app_jobs_info', {
                         job: job.id
                     }) }}" class="block">
-                        <div class="px-2 py-4 sm:px-6">
-                            <div class="flex items-center justify-between mb-4">
+                        <div class="px-6 py-4 flex flex-col gap-y-4">
+                            <div class="flex items-center justify-between">
                                 <p class="font-black text-xl truncate" style="color: {{ job.color }}">{{ job.name }}</p>
-                                <div class="flex">
+                                <div class="flex {% if job.tags|length > 2 %}flex-col gap-y-1.5{% endif %} xl:flex-row">
                                     {% for tag in job.tags %}
                                         <div class="ml-2 flex-shrink-0 flex">
                                             <p class="px-6 inline-flex text-xs leading-5 font-semibold rounded-full border-gray-800 bg-gray-200 text-gray-700">{{ tag }}</p>
@@ -25,11 +25,11 @@
                                     {% endfor %}
                                 </div>
                             </div>
-                            <div class="flex items-center justify-between mb-4">
+                            <div class="flex items-center justify-between">
                                 <p class="text-sm font-light text-gray-300 truncate">{{ job.description }}</p>
                             </div>
-                            <div class="mt-2 sm:flex sm:justify-between">
-                                <div class="sm:flex">
+                            <div class="flex flex-col lg:flex-row lg:justify-between gap-y-1">
+                                <div class="sm:flex gap-y-1">
                                     <p class="flex items-center text-sm text-gray-100">
                                         <i class="fa-solid fa-user-group mr-2"></i>
                                         {{ job.branch }}
@@ -39,12 +39,10 @@
                                         {{ job.location ? job.location : "Remote" }}
                                     </p>
                                 </div>
-                                <div class="flex flex-col justify-center">
-                                    <div class="flex justify-center text-sm text-gray-100">
-                                        <i class="fa-solid fa-calendar-days mr-2 mb-4 "></i>
-                                        <div>
-                                            {{ job.updatedAt|date }} - {{ job.closingAt ? job.closingAt|date : "/" }}
-                                        </div>
+                                <div class="flex flex-row justify-start text-sm text-gray-100">
+                                    <i class="fa-solid fa-calendar-days mr-2"></i>
+                                    <div>
+                                        {{ job.updatedAt|date }} - {{ job.closingAt ? job.closingAt|date : "/" }}
                                     </div>
                                 </div>
                             </div>
