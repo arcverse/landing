@@ -1,7 +1,7 @@
 <div class="h-fit bg-slate-950 flex flex-col justify-center divide-slate-500 divide-y px-20 md:px-80 text-slate-400">
-    <div class="flex flex-col justify-center h-20">
-        <div class="flex flex-row justify-between">
-            <div class="text-2xl">
+    <div class="flex flex-row sm:flex-col justify-center h-fit py-4">
+        <div class="flex flex-col sm:flex-row justify-between gap-y-2.5">
+            <div class="text-2xl flex-row justify-center flex">
                 ARCVERSE
             </div>
             <div class="flex flex-row justify-center w-fit gap-x-2.5">
@@ -36,8 +36,11 @@
             </div>
         </div>
     </div>
-    <div class="flex flex-col justify-center h-20">
-        <div class="flex flex-row justify-between">
+    <div class="flex flex-col justify-center h-fit">
+        <div class="flex flex-col gap-y-1.5 sm:flex-row justify-between py-4">
+            <div class="flex sm:hidden flex-row justify-center w-fit">
+                <img src="{{ asset('images/logo_2.png') }}" alt="" class="h-10" />
+            </div>
             <div class="font-bold flex flex-col">
                 <div>
                     Copyright 2023 <span class="text-slate-300">ARCVERSE</span>
@@ -46,7 +49,7 @@
                     We are not affiliated with Mojang, AB.
                 </div>
             </div>
-            <div class="flex flex-row justify-center w-fit">
+            <div class="hidden sm:flex flex-row justify-center w-fit">
                 <img src="{{ asset('images/logo_2.png') }}" alt="" class="h-10" />
             </div>
         </div>

@@ -72,7 +72,7 @@
             <script src="https://kit.fontawesome.com/3ddcb66a69.js" crossorigin="anonymous"></script>
         {% endblock %}
     </head>
-    <body>
+    <body {% block bodyAttr %}{% endblock %}>
         {% block body %}{% endblock %}
     </body>
 </html>
