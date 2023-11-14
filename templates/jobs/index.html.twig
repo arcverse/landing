@@ -14,10 +14,10 @@
                     <a href="{{ path('app_jobs_info', {
                         job: job.id
                     }) }}" class="block">
-                        <div class="px-2 py-4 sm:px-6">
+                        <div class="px-6 py-4">
                             <div class="flex items-center justify-between mb-4">
                                 <p class="font-black text-xl truncate" style="color: {{ job.color }}">{{ job.name }}</p>
-                                <div class="flex">
+                                <div class="flex {% if job.tags|length > 2 %}flex-col gap-y-1.5{% endif %}">
                                     {% for tag in job.tags %}
                                         <div class="ml-2 flex-shrink-0 flex">
                                             <p class="px-6 inline-flex text-xs leading-5 font-semibold rounded-full border-gray-800 bg-gray-200 text-gray-700">{{ tag }}</p>
@@ -28,7 +28,7 @@
                             <div class="flex items-center justify-between mb-4">
                                 <p class="text-sm font-light text-gray-300 truncate">{{ job.description }}</p>
                             </div>
-                            <div class="mt-2 sm:flex sm:justify-between">
+                            <div class="mt-2 lg:flex lg:justify-between">
                                 <div class="sm:flex">
                                     <p class="flex items-center text-sm text-gray-100">
                                         <i class="fa-solid fa-user-group mr-2"></i>
