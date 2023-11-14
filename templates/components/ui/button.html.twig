@@ -38,4 +38,12 @@
         {% endif %}
         {{ label }}
     </a>
+{% elseif variant == "disabled" %}
+    <button disabled
+       class="py-2 px-3 bg-gray-800 border-gray-600 text-gray-500 text-sm font-semibold rounded-md focus:outline-none hover:scale-105 transition {{ class }}">
+        {% if icon is defined %}
+            <i class="{{ icon }}"></i>
+        {% endif %}
+        {{ label }}
+    </button>
 {% endif %}
