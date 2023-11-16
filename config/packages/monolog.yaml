@@ -43,7 +43,7 @@ when@prod:
             main:
                 type: service
                 action_level: debug
-                handler: Logtail\Monolog\LogtailHandler
+                id: Logtail\Monolog\LogtailHandler
             console:
                 type: console
                 process_psr_3_messages: false
