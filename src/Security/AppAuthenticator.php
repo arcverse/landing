@@ -24,7 +24,7 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
 
     private UrlGeneratorInterface $urlGenerator;
 
-    public function __construct(UrlGeneratorInterface $urlGenerator, private LoggerInterface $logger)
+    public function __construct(UrlGeneratorInterface $urlGenerator)
     {
         $this->urlGenerator = $urlGenerator;
     }
@@ -32,8 +32,6 @@ class AppAuthenticator extends AbstractLoginFormAuthenticator
     public function authenticate(Request $request): Passport
     {
         $email = $request->request->get('_email', '');
-
-        $this->logger->info('User with email ' . $email . ' is trying to log in.');
 
         $request->getSession()->set(Security::LAST_USERNAME, $email);
 
