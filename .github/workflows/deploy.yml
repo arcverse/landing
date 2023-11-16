@@ -47,4 +47,4 @@ jobs:
 
       - name: Trigger portainer webhook and recreate container
         run: |
-          curl -X POST https://docker.lupluv.dev/api/webhooks/5d7ccaa1-3246-41ca-8d9b-049c7ee0cb64
+          curl -X POST ${{ secrets.DOCKER_CONTAINER_URL }}
