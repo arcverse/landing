@@ -43,4 +43,4 @@ when@prod:
             main:
                 type: service
                 id: Logtail\Monolog\LogtailHandler
-                level: info
+                action_level: info
