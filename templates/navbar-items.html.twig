@@ -1,0 +1,51 @@
+{% if mobile %}
+    <div class="flex flex-row justify-start gap-x-2.5">
+        {{ include('components/ui/button.html.twig', {
+            variant: "default",
+            href: path('app_homepage'),
+            label: "Home",
+            icon: "fa-solid fa-house",
+            class: ""
+        }) }}
+        <button class="py-2 px-3 border border-blue-500 text-white text-sm font-semibold rounded-md shadow-lg focus:outline-none hover:scale-105 transition"
+                {{ stimulus_action('mobile-navbar', 'closeNav') }}>
+            <i class="fa-solid fa-close"></i>
+        </button>
+    </div>
+{% else %}
+    {{ include('components/ui/button.html.twig', {
+        variant: "default",
+        href: path('app_homepage'),
+        label: "Home",
+        icon: "fa-solid fa-house",
+        class: ""
+    }) }}
+{% endif %}
+{{ include('components/ui/button.html.twig', {
+    variant: "disabled",
+    href: "#",
+    label: "Blog",
+    icon: "fa-solid fa-square-rss",
+    class: ""
+}) }}
+{{ include('components/ui/button.html.twig', {
+    variant: "ghost",
+    href: "https://health.arcver.se",
+    label: "Health",
+    icon: "fa-solid fa-heart",
+    class: ""
+}) }}
+{{ include('components/ui/button.html.twig', {
+    variant: "disabled",
+    href: "#",
+    label: "Account",
+    icon: "fa-solid fa-globe",
+    class: ""
+}) }}
+{{ include('components/ui/button.html.twig', {
+    variant: "disabled",
+    href: "#",
+    label: "Shop",
+    icon: "fa-solid fa-shop",
+    class: ""
+}) }}
