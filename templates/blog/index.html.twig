@@ -1,0 +1,17 @@
+{% extends 'page.html.twig' %}
+
+{% block title %}🪐 arcverse 🪐 Blog{% endblock %}
+
+{% block content %}
+    <div class="container px-5 py-24 mx-auto">
+        <div class="flex flex-wrap gap-x-4">
+            {% for post in blogPosts %}
+                {{ include('blog/blog-post-preview.html.twig',
+                    {
+                        post: post
+                    }
+                ) }}
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
