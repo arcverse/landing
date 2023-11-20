@@ -1,84 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <style>
+<head>
+    <style>
 
-            .html-styled {
-                & h1 {
-                    font-size: 2em;
-                    font-weight: 600;
-                }
-
-                & h2 {
-                    font-size: 1.5em;
-                    font-weight: 600;
-                }
-
-                & h3 {
-                    font-size: 1.17em;
-                    font-weight: 600;
-                }
-
-                & h4 {
-                    font-size: 1em;
-                    font-weight: 600;
-                }
-
-                & h5 {
-                    font-size: .83em;
-                    font-weight: 600;
-                }
-
-                & h6 {
-                    font-size: .67em;
-                    font-weight: 600;
-                }
-
-                & a {
-                    color: #6366f1;
-                    transition: 0.2s;
-                }
-
-                & a:hover {
-                    color: #4f46e5;
-                    text-decoration: underline;
-                }
-
-                & pre {
-                    background-color: #f7fafc;
-                    border: solid 1px #edf2f7;
-                    border-radius: .25rem;
-                    padding: .30rem .30rem .30rem .60rem;
-                }
-
-                & li {
-                    margin: 2px 2px 0 20px;
-                }
-                & ul {
-                    list-style: circle;
-                    font-size: .9em;
-                }
+        .html-styled {
+            & h1 {
+                font-size: 2em;
+                font-weight: 600;
             }
 
-        </style>
-        <meta charset="UTF-8">
+            & h2 {
+                font-size: 1.5em;
+                font-weight: 600;
+            }
+
+            & h3 {
+                font-size: 1.17em;
+                font-weight: 600;
+            }
+
+            & h4 {
+                font-size: 1em;
+                font-weight: 600;
+            }
+
+            & h5 {
+                font-size: .83em;
+                font-weight: 600;
+            }
+
+            & h6 {
+                font-size: .67em;
+                font-weight: 600;
+            }
+
+            & a {
+                color: #6366f1;
+                transition: 0.2s;
+            }
+
+            & a:hover {
+                color: #4f46e5;
+                text-decoration: underline;
+            }
+
+            & pre {
+                background-color: #f7fafc;
+                border: solid 1px #edf2f7;
+                border-radius: .25rem;
+                padding: .30rem .30rem .30rem .60rem;
+            }
+
+            & li {
+                margin: 2px 2px 0 20px;
+            }
+
+            & ul {
+                list-style: circle;
+                font-size: .9em;
+            }
+        }
+
+    </style>
+    <meta charset="UTF-8">
+    {% block cardMeta %}
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@arcverse">
         <meta name="twitter:title" content="arcverse - Minigames Network">
-        <meta name="twitter:description" content="Arcverse, our upcoming Minecraft network, promises an immersive gaming experience with a range of exciting minigames and unique gamemodes. Stay tuned for updates as we work diligently to bring you a seamless and enjoyable platform. 🚧🎮">
+        <meta name="twitter:description"
+              content="Arcverse, our upcoming Minecraft network, promises an immersive gaming experience with a range of exciting minigames and unique gamemodes. Stay tuned for updates as we work diligently to bring you a seamless and enjoyable platform. 🚧🎮">
         <meta name="twitter:image" content='{{ asset("images/logo-banner.png") }}'>
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>🛸</text></svg>">
-        {% block stylesheets %}
-            {{ encore_entry_link_tags('app') }}
-        {% endblock %}
+    {% endblock %}
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="icon"
+          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>🛸</text></svg>">
+    {% block stylesheets %}
+        {{ encore_entry_link_tags('app') }}
+    {% endblock %}
 
-        {% block javascripts %}
-            {{ encore_entry_script_tags('app') }}
-            <script src="https://kit.fontawesome.com/3ddcb66a69.js" crossorigin="anonymous"></script>
-        {% endblock %}
-    </head>
-    <body {% block bodyAttr %}{% endblock %}>
-        {% block body %}{% endblock %}
-    </body>
+    {% block javascripts %}
+        {{ encore_entry_script_tags('app') }}
+        <script src="https://kit.fontawesome.com/3ddcb66a69.js" crossorigin="anonymous"></script>
+    {% endblock %}
+</head>
+<body {% block bodyAttr %}{% endblock %}>
+{% block body %}{% endblock %}
+</body>
 </html>
