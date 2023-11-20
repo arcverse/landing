@@ -16,7 +16,6 @@ RUN cd /app
 
 RUN chmod -R 777 .
 
-RUN php bin/console doctrine:migrations:migrate --env=prod --no-interaction
 RUN php bin/console cache:clear --env=prod
 RUN php bin/console assets:install --env=prod
 
