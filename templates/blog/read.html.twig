@@ -1,0 +1,21 @@
+{% extends 'page.html.twig' %}
+
+{% block title %}🪐 arcverse 🪐 Blog{% endblock %}
+
+{% block content %}
+    <div class="w-full h-auto border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+        <div class="flex flex-row justify-center">
+            <img class="object-cover object-center" src="{{ asset(post.imagePath) }}" alt="blog image">
+        </div>
+        <div class="p-6">
+            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{{ post.category.name }} - {{ post.createdAt|date }}</h2>
+            <h1 class="text-xl font-bold text-indigo-400 mb-3 border-b border-b-slate-700 pb-3">{{ post.name }}</h1>
+            <div class="mb-3 html-styled">
+                {{ post.content|sanitize_html }}
+            </div>
+            <div class="flex items-center flex-wrap ">
+                {{ include('blog/blog-like-button.html.twig') }}
+            </div>
+        </div>
+    </div>
+{% endblock %}

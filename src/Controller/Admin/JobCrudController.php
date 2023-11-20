@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ArrayField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ColorField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\Field;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
@@ -33,6 +34,7 @@ class JobCrudController extends AbstractCrudController
     {
         yield IdField::new('id')->hideOnForm();
         yield TextField::new('name');
+        yield ColorField::new('color');
         yield TextareaField::new('description')->hideOnIndex();
         yield TextField::new('branch');
         yield TextField::new('location');
@@ -41,6 +43,5 @@ class JobCrudController extends AbstractCrudController
         yield DateTimeField::new('closing_at');
         yield DateTimeField::new('created_at');
         yield DateTimeField::new('updated_at');
-        yield TextField::new('color');
     }
 }

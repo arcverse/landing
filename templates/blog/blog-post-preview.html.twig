@@ -1,0 +1,25 @@
+<div class="p-4">
+    <div class="max-w-md h-auto border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+        <div class="flex flex-row justify-center">
+            <img class="h-full object-cover object-center" src="{{ asset(post.imagePath) }}" alt="blog image">
+        </div>
+        <div class="p-6">
+            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{{ post.category.name }}</h2>
+            <h1 class="title-font text-lg font-medium mb-3">{{ post.name }}</h1>
+            <p class="leading-relaxed mb-3">{{ post.description }}</p>
+            <div class="flex items-center flex-wrap ">
+                {{ include('components/ui/button.html.twig', {
+                    label: "Read More",
+                    icon: "fa-brands fa-readme",
+                    variant: "default",
+                    class: "",
+                    href: path('app_blog_read', {
+                        category: post.category.slug,
+                        slug: post.slug
+                    }),
+                }) }}
+                {{ include('blog/blog-like-button.html.twig') }}
+            </div>
+        </div>
+    </div>
+</div>
