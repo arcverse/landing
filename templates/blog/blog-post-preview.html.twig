@@ -4,7 +4,7 @@
             <img class="h-full object-cover object-center" src="{{ asset(post.imagePath) }}" alt="blog image">
         </div>
         <div class="p-6">
-            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{{ post.category.name }} - {{ post.createdAt }}</h2>
+            <h2 class="tracking-widest text-xs title-font font-medium text-gray-400 mb-1">{{ post.category.name }} - {{ post.createdAt|date }}</h2>
             <h1 class="title-font text-lg font-medium mb-3">{{ post.name }}</h1>
             <p class="leading-relaxed mb-3">{{ post.description }}</p>
             <div class="flex items-center flex-wrap">
@@ -15,7 +15,7 @@
                     class: "",
                     href: path('app_blog_read', {
                         category: post.category.slug,
-                        slug: post.slug
+                        post: post.slug
                     }),
                 }) }}
                 {{ include('blog/blog-like-button.html.twig') }}

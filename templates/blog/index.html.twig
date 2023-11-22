@@ -3,7 +3,45 @@
 {% block title %}🪐 arcverse 🪐 Blog{% endblock %}
 
 {% block content %}
-    <div class="container px-5 py-24 mx-auto">
+    <div class="flex flex-row justify-center gap-x-8">
+        {% if selectedCategory != -1 %}
+            {{ include('components/ui/button.html.twig', {
+                variant: "danger",
+                label: "",
+                href: path('app_blog'),
+                class: "",
+                icon: "fas fa-close"
+            }) }}
+        {% else %}
+            <div class="text-white font-bold text-lg flex flex-col justify-center">
+                <div>
+                    Select a category:
+                </div>
+            </div>
+        {% endif %}
+        {% for category in blogCategories %}
+            {% if selectedCategory == category.id %}
+                {{ include('components/ui/button.html.twig', {
+                    variant: "disabled",
+                    label: category.name,
+                    href: "#",
+                    class: "",
+                    icon: ""
+                }) }}
+            {% else %}
+                {{ include('components/ui/button.html.twig', {
+                    variant: "default",
+                    label: category.name,
+                    href: path('app_blog_category', {
+                        category: category.slug
+                    }),
+                    class: "",
+                    icon: ""
+                }) }}
+            {% endif %}
+        {% endfor %}
+    </div>
+    <div class="container px-5 py-16 mx-auto">
         <div class="flex flex-wrap gap-x-4">
             {% for post in blogPosts %}
                 {{ include('blog/blog-post-preview.html.twig',

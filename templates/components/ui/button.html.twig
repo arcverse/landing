@@ -6,6 +6,14 @@
         {% endif %}
         {{ label }}
     </a>
+{% elseif variant == "danger" %}
+    <a href="{{ href }}"
+       class="py-2 px-3 border-red-500 border text-white text-sm font-semibold rounded-md focus:outline-none hover:scale-105 transition {{ class }}">
+        {% if icon is defined %}
+            <i class="{{ icon }}"></i>
+        {% endif %}
+        {{ label }}
+    </a>
 {% elseif variant == "ghost" %}
     <a href="{{ href }}"
        class="py-2 px-3 text-white text-sm font-semibold rounded-md focus:outline-none hover:scale-105 transition {{ class }}">
@@ -40,7 +48,7 @@
     </a>
 {% elseif variant == "disabled" %}
     <button disabled
-       class="py-2 px-3 bg-gray-800 border-gray-600 text-gray-500 text-sm font-semibold rounded-md focus:outline-none hover:scale-105 transition {{ class }}">
+            class="py-2 px-3 bg-gray-800 border-gray-600 text-gray-500 text-sm font-semibold rounded-md focus:outline-none hover:scale-105 transition {{ class }}">
         {% if icon is defined %}
             <i class="{{ icon }}"></i>
         {% endif %}
