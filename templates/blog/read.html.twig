@@ -2,6 +2,15 @@
 
 {% block title %}🪐 arcverse 🪐 Blog{% endblock %}
 
+{% block cardMeta %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@arcverse">
+    <meta name="twitter:title" content="arcverse - {{ post.name }}">
+    <meta name="twitter:description"
+          content="{{ post.description }}">
+    <meta name="twitter:image" content='{{ asset(post.imagePath) }}'>
+{% endblock %}
+
 {% block content %}
     <div class="w-full h-auto border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
         <div class="flex flex-row justify-center">
