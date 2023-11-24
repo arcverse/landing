@@ -33,8 +33,12 @@ class BlogController extends AbstractController
     {
         $category = $blogCategoryRepository->findOneBy(['slug' => $category]);
         $blogCategories = $blogCategoryRepository->findAll();
+        $blogPosts = $category->getBlogPosts()->toArray();
+        usort($blogPosts, function ($a, $b) {
+            return $b->getCreatedAt() <=> $a->getCreatedAt();
+        });
         return $this->render('blog/index.html.twig', [
-            'blogPosts' => $category->getBlogPosts(),
+            'blogPosts' => $blogPosts,
             'blogCategories' => $blogCategories,
             'selectedCategory' => $category->getId()
         ]);
