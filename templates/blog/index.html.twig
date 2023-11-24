@@ -2,6 +2,15 @@
 
 {% block title %}🪐 arcverse 🪐 Blog{% endblock %}
 
+{% block cardMeta %}
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@arcverse">
+    <meta name="twitter:title" content="arcverse - Blog">
+    <meta name="twitter:description"
+          content="We're thrilled to unveil our latest feature – a brand-new blog system! Now, you can stay in the loop with our changelogs, insightful guides, and other update goodies all in one place. 🚧">
+    <meta name="twitter:image" content='{{ asset("images/blog-banner.png") }}'>
+{% endblock %}
+
 {% block content %}
     <div class="flex flex-row justify-center gap-x-8">
         {% if selectedCategory != -1 %}
