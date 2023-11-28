@@ -1,0 +1,7 @@
+<div class="h-fit w-fit bg-slate-800 rounded-md flex flex-col gap-y-1">
+    {% for category in categories %}
+        <div class="p-2.5 hover:text-white cursor-pointer">
+            {{ category.name }}
+        </div>
+    {% endfor %}
+</div>
