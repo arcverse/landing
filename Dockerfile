@@ -18,6 +18,7 @@ RUN chmod -R 777 .
 
 RUN php bin/console cache:clear --env=prod
 RUN php bin/console assets:install --env=prod
+RUN php bin/console app:prepare-directories
 
 # Expose the port
 EXPOSE 80
