@@ -3,31 +3,33 @@
 {% block title %}🪐 arcverse 🪐 Homepage{% endblock %}
 
 {% block content %}
-    <div class="flex flex-col justify-center text-slate-400 gap-y-4 mb-4">
-        <div class="flex flex-row justify-center">
-            <img src="{{ asset('images/logo-md.png') }}" alt="logo big"/>
-        </div>
-        <div class="flex flex-row justify-center">
-            <div class="font-bold text-xl">
-                Welcome to arcverse
+    <div>
+        <div class="flex flex-col justify-center text-slate-400 gap-y-4 mb-4">
+            <div class="flex flex-row justify-center">
+                <img src="{{ asset('images/logo-md.png') }}" alt="logo big"/>
+            </div>
+            <div class="flex flex-row justify-center">
+                <div class="font-bold text-xl">
+                    Welcome to arcverse
+                </div>
+            </div>
+            <div class="flex flex-row justify-center">
+                <div class="text-md">
+                    More info coming soon!
+                    <br>
+                    While waiting, check out our {{ include('components/ui/link.html.twig', {
+                        label: "job openings",
+                        href: path('app_jobs'),
+                        blank: false
+                    }) }}. We are actively searching for engaged people, to help us build the best experience possible.
+                    <br>
+                    <br>
+                    Be sure to check on updates. We are working hard to bring you the best experience possible.
+                    <br>
+                    Our blog page is coming soon!
+                </div>
             </div>
         </div>
-        <div class="flex flex-row justify-center">
-            <div class="text-md">
-                More info coming soon!
-                <br>
-                While waiting, check out our {{ include('components/ui/link.html.twig', {
-                    label: "job openings",
-                    href: path('app_jobs'),
-                    blank: false
-                }) }}. We are actively searching for engaged people, to help us build the best experience possible.
-                <br>
-                <br>
-                Be sure to check on updates. We are working hard to bring you the best experience possible.
-                <br>
-                Our blog page is coming soon!
-            </div>
-        </div>
+        {{ include('components/discord-card.html.twig') }}
     </div>
-    {{ include('components/discord-card.html.twig') }}
 {% endblock %}
